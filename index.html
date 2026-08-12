@@ -3,62 +3,174 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Astronomia & Web Development</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="OrbitDev Studio - Portfólio Interativo e Hub de Exploração Tecnológica">
+  <title>OrbitDev Studio | Code Showcase</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
 </head>
-<body>
-  <header>
-    <h1>🌌 Portal de Astronomia</h1>
-    <p>Aprenda os conceitos do cosmos através das tecnologias web</p>
+<body data-theme="dark">
+
+  <!-- Header principal -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <div class="brand">
+        <span class="logo-icon">🚀</span>
+        <span class="logo-text">OrbitDev<span>Studio</span></span>
+      </div>
+      
+      <div class="nav-actions">
+        <button id="theme-toggle" class="btn-icon" aria-label="Alternar tema">
+          <span class="theme-icon">🌙</span>
+        </button>
+        <a href="#preview" class="btn btn-primary">Ver Demo Ao Vivo</a>
+      </div>
+    </div>
   </header>
 
-  <nav class="tabs">
-    <button class="tab-btn active" data-tab="html">HTML (Estrutura)</button>
-    <button class="tab-btn" data-tab="css">CSS (Estilo & Animação)</button>
-    <button class="tab-btn" data-tab="js">JavaScript (Interatividade)</button>
-  </nav>
+  <!-- Hero Section -->
+  <section class="hero container">
+    <div class="badge">Projeto Estelar v1.0</div>
+    <h1>Exploração Web em Código Limpo</h1>
+    <p>Navegue pelas abas abaixo para inspecionar a arquitetura estrutural (HTML), a camada de design semântico (CSS) e os scripts de interatividade (JavaScript).</p>
+  </section>
 
-  <main>
-    <!-- Aba HTML -->
-    <section id="html" class="tab-content active">
-      <h2>HTML - A Estrutura do Universo</h2>
-      <p>O HTML define a hierarquia do conteúdo digital, assim como as galáxias organizam a matéria no espaço.</p>
-      <div class="card">
-        <h3>Corpos Celestes em Elementos</h3>
-        <ul>
-          <li><code>&lt;header&gt;</code>: O núcleo do sistema</li>
-          <li><code>&lt;section&gt;</code>: Regiões orbitais</li>
-          <li><code>&lt;article&gt;</code>: Corpos celestes individuais</li>
-        </ul>
+  <!-- Editor / Showcase de Código -->
+  <main class="container showcase-section">
+    <div class="editor-window">
+      <!-- Barra superior do Editor -->
+      <div class="editor-header">
+        <div class="window-controls">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        
+        <!-- Navegação por Abas -->
+        <nav class="editor-tabs" role="tablist">
+          <button class="tab-btn active" data-tab="html" role="tab" aria-selected="true" aria-controls="panel-html">
+            <span class="tab-icon">📄</span> index.html
+          </button>
+          <button class="tab-btn" data-tab="css" role="tab" aria-selected="false" aria-controls="panel-css">
+            <span class="tab-icon">🎨</span> styles.css
+          </button>
+          <button class="tab-btn" data-tab="js" role="tab" aria-selected="false" aria-controls="panel-js">
+            <span class="tab-icon">⚡</span> script.js
+          </button>
+        </nav>
+
+        <button id="copy-code-btn" class="btn-copy" title="Copiar código ativo">
+          <span>Copiar</span> 📋
+        </button>
       </div>
-    </section>
 
-    <!-- Aba CSS -->
-    <section id="css" class="tab-content">
-      <h2>CSS - Visual e Movimento Espacial</h2>
-      <p>Com CSS estilizamos o universo e criamos animações de órbitas celestes em tempo real.</p>
-      <div class="space-demo">
-        <div class="sun"></div>
-        <div class="orbit">
-          <div class="planet"></div>
+      <!-- Conteúdo das Abas -->
+      <div class="editor-body">
+        <!-- Aba 1: HTML -->
+        <div id="panel-html" class="tab-content active" role="tabpanel">
+          <pre><code><span class="kwd">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html</span> <span class="attr">lang</span>=<span class="str">"pt-BR"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+  <span class="tag">&lt;meta</span> <span class="attr">charset</span>=<span class="str">"UTF-8"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;title&gt;</span>OrbitDev - Estação Espacial<span class="tag">&lt;/title&gt;</span>
+  <span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="str">"stylesheet"</span> <span class="attr">href</span>=<span class="str">"styles.css"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+  <span class="tag">&lt;main</span> <span class="attr">class</span>=<span class="str">"card-orbit"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;h2&gt;</span>Módulo Orbital Alpha<span class="tag">&lt;/h2&gt;</span>
+    <span class="tag">&lt;p&gt;</span>Status do sistema: Operacional<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;button</span> <span class="attr">id</span>=<span class="str">"btn-ping"</span><span class="tag">&gt;</span>Enviar Telemetria<span class="tag">&lt;/button&gt;</span>
+  <span class="tag">&lt;/main&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
+        </div>
+
+        <!-- Aba 2: CSS -->
+        <div id="panel-css" class="tab-content" role="tabpanel">
+          <pre><code><span class="com">/* Variáveis Globais & Temas */</span>
+:<span class="tag">root</span> {
+  <span class="attr">--primary</span>: <span class="str">#6366f1</span>;
+  <span class="attr">--primary-hover</span>: <span class="str">#4f46e5</span>;
+  <span class="attr">--bg-dark</span>: <span class="str">#0f172a</span>;
+  <span class="attr">--surface</span>: <span class="str">#1e293b</span>;
+  <span class="attr">--text</span>: <span class="str">#f8fafc</span>;
+  <span class="attr">--radius</span>: <span class="str">12px</span>;
+}
+
+<span class="tag">.card-orbit</span> {
+  <span class="attr">background</span>: <span class="var">var(--surface)</span>;
+  <span class="attr">padding</span>: <span class="str">2rem</span>;
+  <span class="attr">border-radius</span>: <span class="var">var(--radius)</span>;
+  <span class="attr">box-shadow</span>: <span class="str">0 10px 30px rgba(0, 0, 0, 0.3)</span>;
+  <span class="attr">transition</span>: <span class="str">transform 0.3s ease</span>;
+}
+
+<span class="tag">.card-orbit:hover</span> {
+  <span class="attr">transform</span>: <span class="str">translateY(-5px)</span>;
+}</code></pre>
+        </div>
+
+        <!-- Aba 3: JavaScript -->
+        <div id="panel-js" class="tab-content" role="tabpanel">
+          <pre><code><span class="com">// Sistema de Telemetria e Interatividade</span>
+<span class="kwd">const</span> pingBtn = document.<span class="fcn">querySelector</span>(<span class="str">'#btn-ping'</span>);
+
+pingBtn?.<span class="fcn">addEventListener</span>(<span class="str">'click'</span>, () =&gt; {
+  <span class="kwd">const</span> timestamp = <span class="kwd">new</span> <span class="fcn">Date</span>().<span class="fcn">toLocaleTimeString</span>();
+  <span class="fcn">alert</span>(<span class="str">`[${timestamp}] Sinal enviado para a Estação Orbital!`</span>);
+});
+
+<span class="com">// Alternador de Tema Dinâmico</span>
+<span class="kwd">function</span> <span class="fcn">toggleTheme</span>() {
+  <span class="kwd">const</span> current = document.body.<span class="fcn">getAttribute</span>(<span class="str">'data-theme'</span>);
+  <span class="kwd">const</span> next = current === <span class="str">'dark'</span> ? <span class="str">'light'</span> : <span class="str">'dark'</span>;
+  document.body.<span class="fcn">setAttribute</span>(<span class="str">'data-theme'</span>, next);
+}</code></pre>
         </div>
       </div>
-    </section>
-
-    <!-- Aba JavaScript -->
-    <section id="js" class="tab-content">
-      <h2>JavaScript - As Leis da Física Interativa</h2>
-      <p>O JavaScript simula dinamicamente a gravidade e os cálculos astronômicos.</p>
-      <div class="card">
-        <h3>Calculadora de Peso Interplanetário</h3>
-        <label for="earth-weight">Seu peso na Terra (kg):</label><br>
-        <input type="number" id="earth-weight" value="70">
-        <button id="calc-btn">Calcular</button>
-        <div id="weight-result"></div>
-      </div>
-    </section>
+    </div>
   </main>
 
-  <script src="script.js"></script>
+  <!-- Live Demo Interactive Widget -->
+  <section id="preview" class="container preview-section">
+    <h2>Demonstração Interativa ao Vivo</h2>
+    <p>O componente abaixo executa o comportamento codificado nas abas acima.</p>
+    
+    <div class="demo-card">
+      <div class="status-badge" id="status-indicator">● Sistema Online</div>
+      <h3>Módulo Orbital Alpha</h3>
+      <p>Gerencie a telemetria e o consumo de dados da missão em tempo real.</p>
+      
+      <div class="metrics-grid">
+        <div class="metric">
+          <span class="metric-label">Sinal</span>
+          <span class="metric-value" id="signal-val">98%</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Latência</span>
+          <span class="metric-value" id="latency-val">12 ms</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Pings Enviados</span>
+          <span class="metric-value" id="pings-count">0</span>
+        </div>
+      </div>
+
+      <div class="demo-actions">
+        <button id="btn-ping-demo" class="btn btn-primary">Transmitir Sinal Ping</button>
+        <button id="btn-fetch-data" class="btn btn-secondary">Simular Dados API</button>
+      </div>
+      <div id="api-output" class="api-console">Aguardando dados da missão...</div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="footer container">
+    <p>&copy; 2026 OrbitDev Studio. Criado com HTML5, CSS3 e JavaScript Vanilla.</p>
+  </footer>
+
 </body>
 </html>
