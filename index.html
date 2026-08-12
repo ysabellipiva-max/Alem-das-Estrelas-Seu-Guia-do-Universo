@@ -4,165 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AstroVerse - Explorando o Cósmico</title>
-    <style>
-        :root {
-            --bg-color: #0b0d17;
-            --card-bg: rgba(21, 26, 48, 0.7);
-            --accent-color: #7b2cbf;
-            --accent-glow: #00f5d4;
-            --text-color: #e0e6ed;
-            --text-muted: #94a3b8;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            background-image: 
-                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px);
-            background-size: 550px 550px;
-            background-position: 0 0, 200px 150px;
-            color: var(--text-color);
-            line-height: 1.6;
-            padding-bottom: 60px;
-        }
-
-        header {
-            text-align: center;
-            padding: 80px 20px 40px;
-            background: linear-gradient(180deg, rgba(123,44,191,0.2) 0%, transparent 100%);
-        }
-
-        header h1 {
-            font-size: 3rem;
-            color: #ffffff;
-            text-shadow: 0 0 15px var(--accent-glow);
-            margin-bottom: 15px;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: block;
-        }
-
-        section {
-            margin-top: 50px;
-        }
-
-        h2 {
-            font-size: 2rem;
-            border-left: 4px solid var(--accent-glow);
-            padding-left: 15px;
-            margin-bottom: 25px;
-            color: #ffffff;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 25px;
-            backdrop-filter: blur(5px);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-glow);
-        }
-
-        .card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            color: var(--accent-glow);
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 80px;
-            padding: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-    </style>
+    <!-- Conexão com o arquivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
         <h1>AstroVerse</h1>
-        <p>Uma jornada visual e simples pelo Sistema Solar, estrelas, galáxias e os grandes mistérios do universo.</p>
+        <p>Uma jornada visual e interativa pelo Sistema Solar, estrelas e mistérios do universo.</p>
+        <button class="btn-astro" id="btn-fact">Gerar Fato Curioso</button>
+        <div class="fact-box" id="fact-display"></div>
     </header>
 
-    <container>
-        <!-- Seção 1: Sistema Solar -->
+    <main>
         <section>
             <h2>Nosso Sistema Solar</h2>
             <div class="grid">
-                <div class="card">
+                <div class="card" onclick="mostrarDetalhes('O Sol', 'O Sol é responsável por 99,86% de toda a massa do Sistema Solar. A temperatura em seu núcleo chega a 15 milhões de graus Celsius!')">
                     <h3>O Sol</h3>
-                    <p>Uma estrela anã amarela que contém 99,8% de toda a massa do Sistema Solar e mantém os planetas em sua órbita gravitational.</p>
+                    <p>Uma estrela anã amarela que mantém os planetas em sua órbita gravitacional. Clique para saber mais.</p>
                 </div>
-                <div class="card">
+                <div class="card" onclick="mostrarDetalhes('Planetas Rochosos', 'Mercúrio, Vênus, Terra e Marte possuem superfícies sólidas compostas por rochas e metais.')">
                     <h3>Planetas Rochosos</h3>
-                    <p>Mercúrio, Vênus, Terra e Marte possuem superfícies sólidas e estão localizados mais próximos do Sol.</p>
+                    <p>Os quatro planetas mais próximos do Sol. Clique para saber mais.</p>
                 </div>
-                <div class="card">
+                <div class="card" onclick="mostrarDetalhes('Gigantes Gasosos', 'Júpiter e Saturno são compostos principalmente por hidrogênio e hélio. Júpiter é tão grande que caberia todos os outros planetas dentro dele.')">
                     <h3>Gigantes Gasosos</h3>
-                    <p>Júpiter e Saturno são compostos principalmente por hidrogênio e hélio, possuindo dezenas de luas e sistemas de anéis.</p>
+                    <p>Os maiores planetas do sistema. Clique para saber mais.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Seção 2: Fenômenos -->
         <section>
             <h2>Fenômenos Cósmicos</h2>
             <div class="grid">
-                <div class="card">
+                <div class="card" onclick="mostrarDetalhes('Buracos Negros', 'A gravidade de um buraco negro é tão forte que nem a luz consegue escapar após ultrapassar o Horizonte de Eventos.')">
                     <h3>Buracos Negros</h3>
-                    <p>Regiões do espaço onde a gravidade é tão intensa que nada — nem mesmo a luz — consegue escapar.</p>
+                    <p>Regiões do espaço com gravidade extrema. Clique para saber mais.</p>
                 </div>
-                <div class="card">
+                <div class="card" onclick="mostrarDetalhes('Nebulosas', 'Algumas nebulosas são berçários de estrelas, enquanto outras são criadas pela explosão de estrelas moribundas.')">
                     <h3>Nebulosas</h3>
-                    <p>Enormes nuvens de poeira e gás no espaço onde novas estrelas nascem continuamente.</p>
+                    <p>Nuvens gigantes de poeira e gás. Clique para saber mais.</p>
                 </div>
-                <div class="card">
+                <div class="card" onclick="mostrarDetalhes('Supernovas', 'A explosão de uma supernova pode brilhar mais do que uma galáxia inteira por várias semanas.')">
                     <h3>Supernovas</h3>
-                    <p>Explosões gigantescas e brilhantes que marcam a morte de estrelas de grande massa.</p>
+                    <p>As maiores explosões do universo. Clique para saber mais.</p>
                 </div>
             </div>
         </section>
-    </container>
+    </main>
 
     <footer>
-        <p>Desenvolvido com o GitHub Pages • Projeto de Astronomia</p>
+        <p>Desenvolvido com HTML, CSS e JavaScript no GitHub Pages</p>
     </footer>
 
+    <!-- Conexão com o arquivo JavaScript externo -->
+    <script src="script.js"></script>
 </body>
 </html>
