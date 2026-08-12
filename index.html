@@ -1,64 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AstroVerse - Explorando o Cósmico</title>
-    <!-- Conexão com o arquivo CSS externo -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astronomia & Web Development</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+    <h1>🌌 Portal de Astronomia</h1>
+    <p>Aprenda os conceitos do cosmos através das tecnologias web</p>
+  </header>
 
-    <header>
-        <h1>AstroVerse</h1>
-        <p>Uma jornada visual e interativa pelo Sistema Solar, estrelas e mistérios do universo.</p>
-        <button class="btn-astro" id="btn-fact">Gerar Fato Curioso</button>
-        <div class="fact-box" id="fact-display"></div>
-    </header>
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="html">HTML (Estrutura)</button>
+    <button class="tab-btn" data-tab="css">CSS (Estilo & Animação)</button>
+    <button class="tab-btn" data-tab="js">JavaScript (Interatividade)</button>
+  </nav>
 
-    <main>
-        <section>
-            <h2>Nosso Sistema Solar</h2>
-            <div class="grid">
-                <div class="card" onclick="mostrarDetalhes('O Sol', 'O Sol é responsável por 99,86% de toda a massa do Sistema Solar. A temperatura em seu núcleo chega a 15 milhões de graus Celsius!')">
-                    <h3>O Sol</h3>
-                    <p>Uma estrela anã amarela que mantém os planetas em sua órbita gravitacional. Clique para saber mais.</p>
-                </div>
-                <div class="card" onclick="mostrarDetalhes('Planetas Rochosos', 'Mercúrio, Vênus, Terra e Marte possuem superfícies sólidas compostas por rochas e metais.')">
-                    <h3>Planetas Rochosos</h3>
-                    <p>Os quatro planetas mais próximos do Sol. Clique para saber mais.</p>
-                </div>
-                <div class="card" onclick="mostrarDetalhes('Gigantes Gasosos', 'Júpiter e Saturno são compostos principalmente por hidrogênio e hélio. Júpiter é tão grande que caberia todos os outros planetas dentro dele.')">
-                    <h3>Gigantes Gasosos</h3>
-                    <p>Os maiores planetas do sistema. Clique para saber mais.</p>
-                </div>
-            </div>
-        </section>
+  <main>
+    <!-- Aba HTML -->
+    <section id="html" class="tab-content active">
+      <h2>HTML - A Estrutura do Universo</h2>
+      <p>O HTML define a hierarquia do conteúdo digital, assim como as galáxias organizam a matéria no espaço.</p>
+      <div class="card">
+        <h3>Corpos Celestes em Elementos</h3>
+        <ul>
+          <li><code>&lt;header&gt;</code>: O núcleo do sistema</li>
+          <li><code>&lt;section&gt;</code>: Regiões orbitais</li>
+          <li><code>&lt;article&gt;</code>: Corpos celestes individuais</li>
+        </ul>
+      </div>
+    </section>
 
-        <section>
-            <h2>Fenômenos Cósmicos</h2>
-            <div class="grid">
-                <div class="card" onclick="mostrarDetalhes('Buracos Negros', 'A gravidade de um buraco negro é tão forte que nem a luz consegue escapar após ultrapassar o Horizonte de Eventos.')">
-                    <h3>Buracos Negros</h3>
-                    <p>Regiões do espaço com gravidade extrema. Clique para saber mais.</p>
-                </div>
-                <div class="card" onclick="mostrarDetalhes('Nebulosas', 'Algumas nebulosas são berçários de estrelas, enquanto outras são criadas pela explosão de estrelas moribundas.')">
-                    <h3>Nebulosas</h3>
-                    <p>Nuvens gigantes de poeira e gás. Clique para saber mais.</p>
-                </div>
-                <div class="card" onclick="mostrarDetalhes('Supernovas', 'A explosão de uma supernova pode brilhar mais do que uma galáxia inteira por várias semanas.')">
-                    <h3>Supernovas</h3>
-                    <p>As maiores explosões do universo. Clique para saber mais.</p>
-                </div>
-            </div>
-        </section>
-    </main>
+    <!-- Aba CSS -->
+    <section id="css" class="tab-content">
+      <h2>CSS - Visual e Movimento Espacial</h2>
+      <p>Com CSS estilizamos o universo e criamos animações de órbitas celestes em tempo real.</p>
+      <div class="space-demo">
+        <div class="sun"></div>
+        <div class="orbit">
+          <div class="planet"></div>
+        </div>
+      </div>
+    </section>
 
-    <footer>
-        <p>Desenvolvido com HTML, CSS e JavaScript no GitHub Pages</p>
-    </footer>
+    <!-- Aba JavaScript -->
+    <section id="js" class="tab-content">
+      <h2>JavaScript - As Leis da Física Interativa</h2>
+      <p>O JavaScript simula dinamicamente a gravidade e os cálculos astronômicos.</p>
+      <div class="card">
+        <h3>Calculadora de Peso Interplanetário</h3>
+        <label for="earth-weight">Seu peso na Terra (kg):</label><br>
+        <input type="number" id="earth-weight" value="70">
+        <button id="calc-btn">Calcular</button>
+        <div id="weight-result"></div>
+      </div>
+    </section>
+  </main>
 
-    <!-- Conexão com o arquivo JavaScript externo -->
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
