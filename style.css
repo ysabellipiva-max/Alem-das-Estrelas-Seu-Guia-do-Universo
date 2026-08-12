@@ -1,157 +1,407 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS
+   ========================================================================== */
+:root {
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-code: 'Fira Code', monospace;
+
+  /* Modos de Cor - Escuro (Padrão) */
+  --bg-main: #0b0f19;
+  --bg-surface: #151c2c;
+  --bg-editor: #1e293b;
+  --bg-editor-header: #0f172a;
+  --border-color: #334155;
+  
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --secondary: #0ea5e9;
+  --accent: #10b981;
+  
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tema Claro */
+[data-theme="light"] {
+  --bg-main: #f1f5f9;
+  --bg-surface: #ffffff;
+  --bg-editor: #f8fafc;
+  --bg-editor-header: #e2e8f0;
+  --border-color: #cbd5e1;
+  
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset Básico */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
 }
 
 body {
-  background-color: #0b0d17;
-  color: #e0e6ed;
-  text-align: center;
+  font-family: var(--font-main);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+  transition: var(--transition);
   min-height: 100vh;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ==========================================================================
+   2. NAVBAR & HEADER
+   ========================================================================== */
+.navbar {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
-header {
-  padding: 2.5rem 1rem;
-  background: linear-gradient(180deg, #16192b 0%, #0b0d17 100%);
-}
-
-h1 {
-  color: #9d4edd;
-  margin-bottom: 0.5rem;
-}
-
-.tabs {
+.brand {
   display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.logo-text span {
+  color: var(--primary);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Botões */
+.btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: var(--transition);
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+
+.btn-secondary:hover {
+  background-color: var(--border-color);
+}
+
+.btn-icon {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin: 1.5rem 0;
+  font-size: 1.1rem;
+  transition: var(--transition);
+}
+
+.btn-icon:hover {
+  background-color: var(--border-color);
+}
+
+/* ==========================================================================
+   3. HERO SECTION
+   ========================================================================== */
+.hero {
+  text-align: center;
+  padding: 4rem 1.5rem 2.5rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.hero p {
+  color: var(--text-muted);
+  max-width: 650px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   4. EDITOR DE CÓDIGO (ABAS)
+   ========================================================================== */
+.showcase-section {
+  margin-bottom: 4rem;
+}
+
+.editor-window {
+  background-color: var(--bg-editor);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.editor-header {
+  background-color: var(--bg-editor-header);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  border-bottom: 1px solid var(--border-color);
   flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.window-controls {
+  display: flex;
+  gap: 6px;
+  padding: 0.8rem 0;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot.red { background-color: #ef4444; }
+.dot.yellow { background-color: #f59e0b; }
+.dot.green { background-color: #10b981; }
+
+.editor-tabs {
+  display: flex;
+  gap: 0.25rem;
+  overflow-x: auto;
 }
 
 .tab-btn {
-  background-color: #16192b;
-  color: #e0e6ed;
-  border: 1px solid #3d446b;
-  padding: 10px 24px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 0.75rem 1.25rem;
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  font-weight: 500;
   cursor: pointer;
-  border-radius: 20px;
-  transition: all 0.3s ease;
-  font-weight: 600;
+  border-bottom: 2px solid transparent;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
 }
 
-.tab-btn.active, .tab-btn:hover {
-  background-color: #7b2cbf;
-  border-color: #9d4edd;
-  box-shadow: 0 0 12px rgba(157, 78, 221, 0.4);
+.tab-btn:hover {
+  color: var(--text-main);
 }
 
-main {
-  flex: 1;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 1rem;
-  width: 100%;
+.tab-btn.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.btn-copy {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: var(--transition);
+}
+
+.btn-copy:hover {
+  color: var(--text-main);
+  border-color: var(--text-muted);
+}
+
+/* Conteúdo das Abas e Code Syntax Highlight */
+.editor-body {
+  padding: 1.5rem;
+  overflow-x: auto;
 }
 
 .tab-content {
   display: none;
-  background: #16192b;
-  padding: 2rem;
-  border-radius: 12px;
-  border: 1px solid #2a2f4c;
 }
 
 .tab-content.active {
   display: block;
+  animation: fadeIn 0.3s ease;
 }
 
-.card {
-  background: #0b0d17;
-  padding: 1.5rem;
-  margin-top: 1.5rem;
-  border-radius: 8px;
-  text-align: left;
+pre {
+  font-family: var(--font-code);
+  font-size: 0.95rem;
+  line-height: 1.7;
 }
 
-ul {
-  margin-top: 10px;
-  padding-left: 20px;
+/* Destaque de Sintaxe Simulado */
+.kwd { color: #f43f5e; }
+.tag { color: #38bdf8; }
+.attr { color: #facc15; }
+.str { color: #4ade80; }
+.com { color: #64748b; font-style: italic; }
+.fcn { color: #c084fc; }
+.var { color: #fb923c; }
+
+/* ==========================================================================
+   5. DEMO INTERATIVA (WIDGET)
+   ========================================================================== */
+.preview-section {
+  margin-bottom: 4rem;
 }
 
-li {
-  margin-bottom: 8px;
+.preview-section h2 {
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
-code {
-  background: #2a2f4c;
-  padding: 2px 6px;
-  border-radius: 4px;
-  color: #ffbd59;
+.preview-section > p {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
 }
 
-/* Animação de Órbita em CSS */
-.space-demo {
+.demo-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
   position: relative;
-  width: 200px;
-  height: 200px;
-  margin: 2rem auto;
+}
+
+.status-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.metric {
+  background: var(--bg-main);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.metric-label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.metric-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.demo-actions {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
 }
 
-.sun {
-  width: 45px;
-  height: 45px;
-  background-color: #ffbd59;
-  border-radius: 50%;
-  box-shadow: 0 0 25px #ffbd59;
+.api-console {
+  background: var(--bg-main);
+  border: 1px dashed var(--border-color);
+  padding: 1rem;
+  border-radius: 8px;
+  font-family: var(--font-code);
+  font-size: 0.85rem;
+  color: var(--text-muted);
 }
 
-.orbit {
-  position: absolute;
-  width: 160px;
-  height: 160px;
-  border: 1px dashed rgba(255, 255, 255, 0.25);
-  border-radius: 50%;
-  animation: spin 6s linear infinite;
+/* Rodapé */
+.footer {
+  border-top: 1px solid var(--border-color);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
 }
 
-.planet {
-  width: 18px;
-  height: 18px;
-  background-color: #38b6ff;
-  border-radius: 50%;
-  position: absolute;
-  top: -9px;
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: 0 0 8px #38b6ff;
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes spin {
-  100% { transform: rotate(360deg); }
-}
-
-/* Formulário do JS */
-input {
-  padding: 8px 12px;
-  margin: 10px 0;
-  border-radius: 6px;
-  border: 1px solid #3d446b;
-  background: #16192b;
-  color: #fff;
-}
-
-button#calc-btn {
-  padding: 8px 16px;
-  background-color: #7b2cbf;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+/* Responsividade */
+@media (max-width: 640px) {
+  .hero h1 { font-size: 1.8rem; }
+  .editor-header { justify-content: center; }
+  .btn-copy { width: 100%; margin-bottom: 0.5rem; }
 }
